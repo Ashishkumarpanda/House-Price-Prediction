@@ -6,7 +6,7 @@ import tensorflow as tf
 housing=pd.read_csv("house.csv")
 housing.head()
 
-housing.describe().transpose()
+#housing.describe().transpose()
 
 x_data=housing.drop(['medianHouseValue'],axis=1)#drop the value to be predicted
 
@@ -53,8 +53,9 @@ predictions=list(model.predict(predict_input_func))
 final_pred=[]
 for pred in predictions:
   final_pred.append(pred['predictions'])
+print(final_pred)
 
 #calculating root mean square error
 #it takes two arguments the actual ouput(y_test) and predicted output(final_pred)
-from sklearn.metrics import mean_squared_error
-mean_squared_error(y_test,final_pred)**0.5
+#from sklearn.metrics import mean_squared_error
+#mean_squared_error(y_test,final_pred)**0.5
